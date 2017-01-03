@@ -1,8 +1,8 @@
 'use strict';
 
-function pay(yearRate, loanTerm, loanAmout) {
+function pay(yearRate, loanTerm, loanAmount) {
   var monthRate = ((yearRate / 12) / 100);
-  var fee = loanAmout * monthRate;
+  var fee = loanAmount * monthRate;
   var divider = 1 - Math.pow((1 + monthRate), -loanTerm);
   return fee / divider;
 }

@@ -11,5 +11,32 @@ describe('Test Financial Functions', function() {
         .to
         .equal(6.870383723475022);
     });
+
+    it('Should return NaN due an incorrect param (yearRate)', function () {
+        var yearRate = 'string';
+        var loanTerm = 360;
+        var loanAmount = 1530;
+        expect(financial.pay(yearRate, loanTerm, loanAmount))
+          .to
+          .to.be.NaN;
+    });
+
+    it('Should return NaN due an incorrect param (loanTerm)', function () {
+        var yearRate = 3.5
+        var loanTerm = null;
+        var loanAmount = 1530;
+        expect(financial.pay(yearRate, loanTerm, loanAmount))
+          .to
+          .to.be.NaN;
+    });
+
+    it('Should return NaN due an incorrect param (loanAmount)', function () {
+        var yearRate = 3.5
+        var loanTerm = 360;
+        var loanAmount = undefined;
+        expect(financial.pay(yearRate, loanTerm, loanAmount))
+          .to
+          .to.be.NaN;
+    });
   });
 });
